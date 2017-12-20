@@ -20,7 +20,6 @@ namespace FTN.Services.NetworkModelService
 		public Container()
 		{
 		}
-
 		/// <summary>
 		/// Gets or sets dictionary of entities (identified objects) inside container.
 		/// </summary>	

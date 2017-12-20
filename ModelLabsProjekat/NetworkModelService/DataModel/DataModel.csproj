@@ -84,16 +84,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\BaseVoltage .cs" />
-    <Compile Include="Core\ConductingEquipment.cs" />
-    <Compile Include="Core\Equipment.cs" />
-    <Compile Include="Core\Location.cs" />
+    <Compile Include="Assets\Asset.cs" />
+    <Compile Include="Assets\AssetFunction.cs" />
+    <Compile Include="Assets\AssetInfo.cs" />
+    <Compile Include="Assets\AssetModel.cs" />
+    <Compile Include="Assets\AssetOrganisationRole.cs" />
+    <Compile Include="Assets\AssetOwner.cs" />
+    <Compile Include="Assets\Manufacturer.cs" />
+    <Compile Include="Assets\ProductAssetModel.cs" />
+    <Compile Include="Assets\Seal.cs" />
+    <Compile Include="Common\OrganisationRole.cs" />
     <Compile Include="Core\IdentifiedObject.cs" />
-    <Compile Include="Core\PowerSystemResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wires\WindingTest.cs" />
-    <Compile Include="Wires\PowerTransformer.cs" />
-    <Compile Include="Wires\TransformerWinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.csproj">
@@ -123,7 +125,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Wires\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

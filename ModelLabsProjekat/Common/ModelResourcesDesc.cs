@@ -878,10 +878,13 @@ namespace FTN.Common
             typeIdsInInsertOrder.Add(ModelCode.PRODUCTASSETMODEL);		
             typeIdsInInsertOrder.Add(ModelCode.ASSETINFO);		
             typeIdsInInsertOrder.Add(ModelCode.ASSETOWNER);
-            		
-		}
+            typeIdsInInsertOrder.Add(ModelCode.ASSET);
 
-		private void InitializeNotSettablePropertyIds()
+
+
+        }
+
+        private void InitializeNotSettablePropertyIds()
 		{
             //notSettablePropertyIds.Add(ModelCode.IDOBJ_GID);
             //notSettablePropertyIds.Add(ModelCode.BASEVOLTAGE_CONDEQS);

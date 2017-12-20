@@ -50,7 +50,7 @@
                 }
                 if (cimAssetFunction.PasswordHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSETFUNCTION_PASS, cimAssetFunction.Password));
+                    rd.AddProperty(new Property(ModelCode.ASSETFUNCTION_PASSWORD, cimAssetFunction.Password));
                 }
                 if (cimAssetFunction.ProgramIDHasValue)
                 {

@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Xml;
 using FTN.Common;
 using FTN.Services.NetworkModelService.DataModel.Core;
-using FTN.Services.NetworkModelService.DataModel.Wires;
-using FTN.Services.NetworkModelService.DataModel;
-
+using FTN.Services.NetworkModelService.DataModel.Assets;
 
 namespace FTN.Services.NetworkModelService
-{		
-	public class Container
+{
+    public class Container
 	{
 		/// <summary>
 		/// The dictionary of entities. Key = GlobaId, Value = Entity
@@ -121,25 +113,31 @@ namespace FTN.Services.NetworkModelService
 
 			IdentifiedObject io = null;			
 			switch ((DMSType)type)
-			{
-				case DMSType.BASEVOLTAGE:
-					io = new BaseVoltage(globalId);
-					break;
+			{	
 
-				case DMSType.LOCATION:
-					io = new Location(globalId);
-					break;
-				case DMSType.POWERTR:
-					io = new PowerTransformer(globalId);
-					break;
-				case DMSType.TRWINDING:
-					io = new TransformerWinding(globalId);
-					break;
-				case DMSType.WINDINGTEST:
-					io = new WindingTest(globalId);
-					break;			
+                case DMSType.ASSET:
+                    io = new Asset(globalId);
+                    break;
+                case DMSType.ASSETFUNCTION:
+                    io = new AssetFunction(globalId);
+                    break;
+                case DMSType.ASSETINFO:
+                    io = new AssetInfo(globalId);
+                    break;
+                case DMSType.ASSETOWNER:
+                    io = new AssetOwner(globalId);
+                    break;
+                case DMSType.MANUFACTURER:
+                    io = new Manufacturer(globalId);
+                    break;
+                case DMSType.PRODUCTASSETMODEL:
+                    io = new ProductAssetModel(globalId);
+                    break;
+                case DMSType.SEAL:
+                    io = new Seal(globalId);
+                    break;
 
-				default:					
+                default:					
 					string message = String.Format("Failed to create entity because specified type ({0}) is not supported.", type);
 					CommonTrace.WriteTrace(CommonTrace.TraceError, message);
 					throw new Exception(message);					

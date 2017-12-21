@@ -32,7 +32,7 @@ namespace Client.View
         {
             List<DMSType> enums =Enum.GetValues(typeof(DMSType)).Cast<DMSType>().ToList();
             enums.Remove(DMSType.MASK_TYPE);
-            comboBox.ItemsSource = enums;
+            comboBoxDMSType.ItemsSource = enums;
         }
     }
 }

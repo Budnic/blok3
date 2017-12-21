@@ -13,6 +13,5 @@
                 <view:GetValues/>
             </TabItem>
         </TabControl>
-        <Button x:Name="button" Content="Load" HorizontalAlignment="Left" Margin="30,400,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

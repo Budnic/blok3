@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,10 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\Command.cs" />
+    <Compile Include="Command\GetValuesCommand.cs" />
     <Compile Include="Connection\Connection.cs" />
+    <Compile Include="Converter\MultiCloneConverter.cs" />
+    <Compile Include="Model\PropertyModel.cs" />
+    <Compile Include="ViewModel\AbstractViewModel.cs" />
     <Compile Include="ViewModel\GetValuesViewModel.cs" />
-    <Compile Include="View\GetValues.xaml.cs">
-      <DependentUpon>GetValues.xaml</DependentUpon>
+    <Compile Include="View\GetValuesView.xaml.cs">
+      <DependentUpon>GetValuesView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -76,7 +82,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\GetValues.xaml">
+    <Page Include="View\GetValuesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,9 +114,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Command\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{892cbe15-9ed7-4540-81fa-0eaaba592138}</Project>

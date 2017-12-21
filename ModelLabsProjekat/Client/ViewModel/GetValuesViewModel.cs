@@ -7,71 +7,23 @@ using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Client.Model;
+using Client.Command;
 
 namespace Client.ViewModel
 {
 
-    public class PropertyModel
+    public class GetValuesViewModel : AbstractViewModel
     {
-        private bool isSelected = false;
 
-        private string name;
-
-        private ModelCode modelCode;
-        private ModelCode m;
-
-        public PropertyModel(ModelCode m)
-        {
-            this.modelCode = m;
-        }
-
-        public bool IsSelected
-        {
-            get
-            {
-                return isSelected;
-            }
-
-            set
-            {
-                isSelected = value;
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-
-            set
-            {
-                name = value;
-            }
-        }
-
-        public ModelCode ModelCode
-        {
-            get
-            {
-                return modelCode;
-            }
-
-             set
-            {
-                modelCode = value;
-            }
-        }
-    }
-
-    public class GetValuesViewModel : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
         private ModelResourcesDesc modelResurcesDesc = null;
         private DMSType type;
+        public GetValuesCommand  LoadValues {get;set;}
+        public ObservableCollection<Property> objectValue;
+
         public GetValuesViewModel()
         {
+            this.LoadValues = new GetValuesCommand(this);
             modelResurcesDesc = new ModelResourcesDesc();
         }
 
@@ -93,14 +45,12 @@ namespace Client.ViewModel
             set { this.GIDs = value; OnPropertyChanged("GIDs"); }
         }
 
-        protected void OnPropertyChanged(string name)
+        public ObservableCollection<Property> ObjectValue
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
+            get { return objectValue; }
+            set { this.objectValue = value; OnPropertyChanged("ObjectValue"); }
         }
+       
 
         ObservableCollection<PropertyModel> CreatePropertyModel(List<ModelCode> mc)
         {

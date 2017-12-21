@@ -585,7 +585,7 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
             #endregion Create resources
 
             #region Set references
-
+            //???
             //SetPowerTransformerReferences(updates);
             //SetTransformerWindingReferences(updates);
             //SetWindingTestRefernces(updates);
@@ -695,7 +695,7 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
             #endregion Creating resources
 
             #region Set references
-
+            //???
             //SetPowerTransformerReferences(updates);
             //SetTransformerWindingReferences(updates);
             //SetWindingTestRefernces(updates);
@@ -706,7 +706,7 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
         }
 
         #region set references
-
+        //???
         //private void SetPowerTransformerReferences(Dictionary<DMSType, ResourceDescription> updates)
         //{
         //    for (int i = 0; i < updates[DMSType.POWERTR].Properties.Count; i++)

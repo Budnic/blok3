@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:Client"
         xmlns:view ="clr-namespace:Client.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="1000" Width="1000">
     <Grid>
         <TabControl>
             <TabItem Header="GetValues">
                 <view:GetValues/>
             </TabItem>
         </TabControl>
+        <Button x:Name="button" Content="Load" HorizontalAlignment="Left" Margin="30,400,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

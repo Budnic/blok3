@@ -1,4 +1,5 @@
-﻿using FTN.Common;
+﻿using Client.ViewModel;
+using FTN.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +25,14 @@ namespace Client.View
         public GetValues()
         {
             InitializeComponent();
+            DataContext = new GetValuesViewModel();
         }
 
         private void comboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            comboBox.ItemsSource = Enum.GetValues(typeof(DMSType)).Cast<DMSType>();
+            List<DMSType> enums =Enum.GetValues(typeof(DMSType)).Cast<DMSType>().ToList();
+            enums.Remove(DMSType.MASK_TYPE);
+            comboBox.ItemsSource = enums;
         }
     }
 }

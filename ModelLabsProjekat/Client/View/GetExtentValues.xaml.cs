@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Client.ViewModel;
+using FTN.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,13 @@ namespace Client.View
         public GetExtentValues()
         {
             InitializeComponent();
+            DataContext = new GetExtentValuesViewModel();
+        }
+        private void comboBoxDMSType_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            List<DMSType> enums = Enum.GetValues(typeof(DMSType)).Cast<DMSType>().ToList();
+            enums.Remove(DMSType.MASK_TYPE);
+            comboBoxDMSType.ItemsSource = enums;
         }
     }
 }

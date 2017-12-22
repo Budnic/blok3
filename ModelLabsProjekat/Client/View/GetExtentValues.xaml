@@ -4,15 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Client.View"
+             xmlns:converter="clr-namespace:Client.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converter:MultiCloneConverter x:Key="multiConverter"/>
+    </UserControl.Resources>
+
     <Grid>
         <Label x:Name="labelType" Content="Type" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBoxDMSType" SelectedItem="{Binding Path=Type}" HorizontalAlignment="Left" Margin="91,25,0,0" VerticalAlignment="Top" Width="200" Loaded="comboBox_Loaded"/>
-       <Label x:Name="labelProperties" Content="Properties" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
-        
+        <ComboBox x:Name="comboBoxDMSType" SelectedItem="{Binding Path=Type}" HorizontalAlignment="Left" Margin="91,25,0,0" VerticalAlignment="Top" Width="200" Loaded="comboBoxDMSType_Loaded_1"  />
+
+        <Label x:Name="labelProperties" Content="Properties" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
+
         <ListBox x:Name="listBoxProperties"   SelectionMode="Multiple"
-           ItemsSource="{Binding Path=Properties}" HorizontalAlignment="Left" Margin="10,167,0,402" Width="300">
+           ItemsSource="{Binding Path=Properties}" HorizontalAlignment="Left" Margin="10,167,0,415" Width="385">
             <ListBox.Resources>
                 <Style TargetType="{x:Type ListBoxItem}">
                     <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
@@ -24,7 +30,7 @@
                 </HierarchicalDataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
+
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Path=ObjectValue}" HorizontalAlignment="Left" Margin="456,167,0,0" VerticalAlignment="Top" Height="431" Width="463">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -39,7 +45,7 @@
         <Button x:Name="buttonLoad" Command="{Binding Path=LoadValues}" Content="Load" HorizontalAlignment="Left" Margin="91,657,0,0" VerticalAlignment="Top" Width="75">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource multiConverter}">
-                    <Binding Path="SelectedItem" ElementName="comboBoxGid"/>
+                    <Binding Path="SelectedItem" ElementName="comboBoxDMSType"/>
                     <Binding Path="SelectedItems" ElementName="listBoxProperties"/>
                 </MultiBinding>
             </Button.CommandParameter>

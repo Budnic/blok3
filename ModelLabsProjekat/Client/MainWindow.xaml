@@ -12,6 +12,9 @@
             <TabItem Header="GetValues">
                 <view:GetValues/>
             </TabItem>
+            <TabItem Header="GetExtentValues">
+                <view:GetExtentValues/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

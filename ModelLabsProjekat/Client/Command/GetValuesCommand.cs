@@ -46,7 +46,7 @@ namespace Client.Command
             {
                 propertyViews.Add(new PropertyView(p.Id ,p.ToString()));
             }
-            viewModel.ObjectValue = new ObservableCollection<PropertyView>(propertyViews); // Nesto nije kako treba :D
+            viewModel.ObjectValue = new ObservableCollection<PropertyView>(propertyViews);
         }
     }
 }

@@ -61,12 +61,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\Command.cs" />
+    <Compile Include="Command\GetExtentValuesCommand.cs" />
     <Compile Include="Command\GetValuesCommand.cs" />
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Converter\MultiCloneConverter.cs" />
     <Compile Include="Model\PropertyModel.cs" />
     <Compile Include="Model\PropertyView.cs" />
     <Compile Include="ViewModel\AbstractViewModel.cs" />
+    <Compile Include="ViewModel\GetExtentValuesViewModel.cs" />
     <Compile Include="ViewModel\GetValuesViewModel.cs" />
     <Compile Include="View\GetExtentValues.xaml.cs">
       <DependentUpon>GetExtentValues.xaml</DependentUpon>
@@ -120,7 +122,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="ViewModel\App.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

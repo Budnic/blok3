@@ -32,7 +32,17 @@
         </ListBox>
         
         <ComboBox x:Name="comboBoxGid" ItemStringFormat="0x{0:x16}" ItemsSource="{Binding Path=GIDs}" HorizontalAlignment="Left" Margin="90,73,0,0" VerticalAlignment="Top" Width="200"/>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Path=ObjectValue}" HorizontalAlignment="Left" Margin="456,167,0,0" VerticalAlignment="Top" Height="431" Width="463"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Path=ObjectValue}" HorizontalAlignment="Left" Margin="456,167,0,0" VerticalAlignment="Top" Height="431" Width="463">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ModelCode" Binding="{Binding ModelCode}"/>
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button x:Name="buttonLoad" Command="{Binding Path=LoadValues}" Content="Load" HorizontalAlignment="Left" Margin="91,657,0,0" VerticalAlignment="Top" Width="75">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource multiConverter}">

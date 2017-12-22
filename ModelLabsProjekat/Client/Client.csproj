@@ -65,8 +65,12 @@
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Converter\MultiCloneConverter.cs" />
     <Compile Include="Model\PropertyModel.cs" />
+    <Compile Include="Model\PropertyView.cs" />
     <Compile Include="ViewModel\AbstractViewModel.cs" />
     <Compile Include="ViewModel\GetValuesViewModel.cs" />
+    <Compile Include="View\GetExtentValues.xaml.cs">
+      <DependentUpon>GetExtentValues.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GetValuesView.xaml.cs">
       <DependentUpon>GetValuesView.xaml</DependentUpon>
     </Compile>
@@ -82,6 +86,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\GetExtentValues.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GetValuesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

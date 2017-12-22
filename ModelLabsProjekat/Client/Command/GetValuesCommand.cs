@@ -41,8 +41,12 @@ namespace Client.Command
                 properties.Add(propertyModel.ModelCode);
             }
             ResourceDescription rd =  Connection.Connection.Instance().Proxy.GetValues(gid, properties);
-
-            //viewModel.ObjectValue = new ObservableCollection<Property>(rd.Properties); // Nesto nije kako treba :D
+            List<PropertyView> propertyViews = new List<PropertyView>();
+            foreach(Property p in rd.Properties)
+            {
+                propertyViews.Add(new PropertyView(p.Id ,p.ToString()));
+            }
+            viewModel.ObjectValue = new ObservableCollection<PropertyView>(propertyViews); // Nesto nije kako treba :D
         }
     }
 }

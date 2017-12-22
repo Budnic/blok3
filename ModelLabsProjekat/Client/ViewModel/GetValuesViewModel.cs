@@ -19,7 +19,7 @@ namespace Client.ViewModel
         private ModelResourcesDesc modelResurcesDesc = null;
         private DMSType type;
         public GetValuesCommand  LoadValues {get;set;}
-        public ObservableCollection<Property> objectValue;
+        public ObservableCollection<PropertyView> objectValue;
 
         public GetValuesViewModel()
         {
@@ -45,7 +45,7 @@ namespace Client.ViewModel
             set { this.GIDs = value; OnPropertyChanged("GIDs"); }
         }
 
-        public ObservableCollection<Property> ObjectValue
+        public ObservableCollection<PropertyView> ObjectValue
         {
             get { return objectValue; }
             set { this.objectValue = value; OnPropertyChanged("ObjectValue"); }

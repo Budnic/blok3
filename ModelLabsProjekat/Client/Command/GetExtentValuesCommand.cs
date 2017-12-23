@@ -57,6 +57,7 @@ namespace Client.Command
                 {
                     propertyViews.Add(new PropertyView(p.Id, p.ToString()));
                 }
+                propertyViews.Add(new PropertyView());
             }
             viewModel.ObjectValue = new ObservableCollection<PropertyView>(propertyViews); //
         }
@@ -75,22 +76,22 @@ namespace Client.Command
                 int resourcesLeft = 0;
                 
 
-                iteratorId = Connection.Connection.Instance().Proxy.GetExtentValues(modelCode, properties);
-                resourcesLeft = Connection.Connection.Instance().Proxy.IteratorResourcesLeft(iteratorId);
+                iteratorId = viewModel.Proxy.GetExtentValues(modelCode, properties);
+                resourcesLeft = viewModel.Proxy.IteratorResourcesLeft(iteratorId);
                              
                 while (resourcesLeft > 0)
                 {
-                    List<ResourceDescription> rds = Connection.Connection.Instance().Proxy.IteratorNext(numberOfResources, iteratorId);
+                    List<ResourceDescription> rds = viewModel.Proxy.IteratorNext(numberOfResources, iteratorId);
 
                     for (int i = 0; i < rds.Count; i++)
                     {
                         resourceDescriptions.Add(rds[i]);
                     }
 
-                    resourcesLeft = Connection.Connection.Instance().Proxy.IteratorResourcesLeft(iteratorId);
+                    resourcesLeft = viewModel.Proxy.IteratorResourcesLeft(iteratorId);
                 }
 
-                Connection.Connection.Instance().Proxy.IteratorClose(iteratorId);
+                viewModel.Proxy.IteratorClose(iteratorId);
 
             }
             catch

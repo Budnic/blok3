@@ -8,14 +8,20 @@ namespace Client.Model
 {
     public class PropertyView 
     {
-        ModelCode modelCode;
-        string value;
+        String modelCode;
+        String value;
 
         public PropertyView(ModelCode modelCode , string value)
         {
-            this.modelCode = modelCode;
+            this.modelCode = modelCode.ToString();
             this.value = value;
 
+        }
+
+        public PropertyView()
+        {
+            this.modelCode = String.Empty;
+            this.value = String.Empty;
         }
 
         public string Value
@@ -31,7 +37,7 @@ namespace Client.Model
             }
         }
 
-        public ModelCode ModelCode
+        public String ModelCode
         {
             get
             {

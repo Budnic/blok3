@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FTN.ServiceContracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,26 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        protected Connection.Connection connection = new Connection.Connection();
+        private INetworkModelGDAContract proxy;
+
         public MainWindow()
         {
-            InitializeComponent();
+                InitializeComponent();
+        }
+
+        public INetworkModelGDAContract Proxy
+        {
+            get
+            {
+                return proxy;
+            }
+
+            private set
+            {
+                proxy = value;
+            }
         }
     }
 }

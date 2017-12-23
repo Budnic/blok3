@@ -291,13 +291,13 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
 
             if (assetInfo != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.ASSETINFO_ASSETMODEL] = new List<long>();
-                references[ModelCode.ASSETINFO_ASSETMODEL].Add(assetInfo);
+                references[ModelCode.ASSET_ASSETINFO] = new List<long>();
+                references[ModelCode.ASSET_ASSETINFO].Add(assetInfo);
             }
             if (assetOrganisationRole != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.ASSETINFO_ASSETMODEL] = new List<long>();
-                references[ModelCode.ASSETINFO_ASSETMODEL].Add(assetOrganisationRole);
+                references[ModelCode.ASSET_ORGANISATIONROLE] = new List<long>();
+                references[ModelCode.ASSET_ORGANISATIONROLE].Add(assetOrganisationRole);
             }
             base.GetReferences(references, refType);
         }

@@ -118,7 +118,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             if (assets != null && assets.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.ASSETMODEL_ASSETINFOS] = assets.GetRange(0, assets.Count);
+                references[ModelCode.ASSETINFO_ASSETS] = assets.GetRange(0, assets.Count);
             }
 
             if (assetModel != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))

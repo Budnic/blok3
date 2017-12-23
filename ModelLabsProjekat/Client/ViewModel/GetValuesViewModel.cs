@@ -9,6 +9,7 @@ using System.Text;
 using System.Xml;
 using Client.Model;
 using Client.Command;
+using FTN.ServiceContracts;
 
 namespace Client.ViewModel
 {
@@ -20,7 +21,7 @@ namespace Client.ViewModel
         public GetValuesCommand  LoadValues {get;set;}
         public ObservableCollection<PropertyView> objectValue;
 
-        public GetValuesViewModel()
+        public GetValuesViewModel(INetworkModelGDAContract proxy) : base(proxy)
         {
             this.LoadValues = new GetValuesCommand(this);
         }

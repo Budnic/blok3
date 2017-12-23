@@ -1,5 +1,6 @@
 ﻿using Client.Model;
 using FTN.Common;
+using FTN.ServiceContracts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,12 +14,14 @@ namespace Client.ViewModel
     {
 
 
-        public AbstractViewModel()
+        public AbstractViewModel(INetworkModelGDAContract proxy)
         {
-            modelResurcesDesc = new ModelResourcesDesc();
+            this.proxy = proxy;
+            this.modelResurcesDesc = new ModelResourcesDesc();
         }
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private INetworkModelGDAContract proxy;
         protected DMSType type;
         protected ModelResourcesDesc modelResurcesDesc = null;
         protected void OnPropertyChanged(string name)
@@ -48,22 +51,22 @@ namespace Client.ViewModel
 
                 List<ModelCode> properties = modelResurcesDesc.GetAllPropertyIds(modelCode);
 
-                iteratorId = Connection.Connection.Instance().Proxy.GetExtentValues(modelResurcesDesc.GetModelCodeFromType(modelCode), properties);
-                resourcesLeft = Connection.Connection.Instance().Proxy.IteratorResourcesLeft(iteratorId);
+                iteratorId = Proxy.GetExtentValues(modelResurcesDesc.GetModelCodeFromType(modelCode), properties);
+                resourcesLeft = Proxy.IteratorResourcesLeft(iteratorId);
 
                 while (resourcesLeft > 0)
                 {
-                    List<ResourceDescription> rds = Connection.Connection.Instance().Proxy.IteratorNext(numberOfResources, iteratorId);
+                    List<ResourceDescription> rds = Proxy.IteratorNext(numberOfResources, iteratorId);
 
                     for (int i = 0; i < rds.Count; i++)
                     {
                         ids.Add(rds[i].Id);
                     }
 
-                    resourcesLeft = Connection.Connection.Instance().Proxy.IteratorResourcesLeft(iteratorId);
+                    resourcesLeft = Proxy.IteratorResourcesLeft(iteratorId);
                 }
 
-                Connection.Connection.Instance().Proxy.IteratorClose(iteratorId);
+                Proxy.IteratorClose(iteratorId);
 
                 message = "Getting extent values method successfully finished.";
                 Console.WriteLine(message);
@@ -100,6 +103,17 @@ namespace Client.ViewModel
             set { this.Properties = value; OnPropertyChanged("Properties"); }
         }
 
+        public INetworkModelGDAContract Proxy
+        {
+            get
+            {
+                return proxy;
+            }
 
+            private set
+            {
+                proxy = value;
+            }
+        }
     }
 }

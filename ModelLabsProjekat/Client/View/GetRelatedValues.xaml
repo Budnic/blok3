@@ -1,24 +1,27 @@
-﻿<UserControl x:Class="Client.View.GetValues"
+﻿<UserControl x:Class="Client.View.GetRelatedValues"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Client.View"
              xmlns:converter="clr-namespace:Client.Converter"
-             xmlns:System="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1000">
     <UserControl.Resources>
         <converter:MultiCloneConverter x:Key="multiConverter"/>
     </UserControl.Resources>
-    
     <Grid>
-        <Label x:Name="labelType" Content="Type" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBoxDMSType" SelectedItem="{Binding Path=Type}" HorizontalAlignment="Left" Margin="91,25,0,0" VerticalAlignment="Top" Width="200" Loaded="comboBox_Loaded"/>
-        <Label x:Name="labelGid" Content="GID" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelProperties" Content="Properties" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Source ModelCode" HorizontalAlignment="Left" Margin="30,29,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBoxDMSType" SelectedItem="{Binding Path=Type}" HorizontalAlignment="Left" Margin="166,29,0,0" VerticalAlignment="Top" Width="200" Loaded="comboBoxDMSType_Loaded"  />
+        <Label x:Name="label1" Content="Source GID" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBoxGid"  ItemStringFormat="0x{0:x16}" ItemsSource="{Binding Path=GIDs}" HorizontalAlignment="Left" Margin="166,68,0,0" VerticalAlignment="Top" Width="200"/>
+        <Label x:Name="label2" Content="Property ID" HorizontalAlignment="Left" Margin="30,106,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Type" HorizontalAlignment="Left" Margin="30,154,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="166,110,0,0" VerticalAlignment="Top" ItemsSource="{Binding Path=References}" Width="200"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="166,158,0,0" VerticalAlignment="Top" Width="200"/>
+
         <ListBox x:Name="listBoxProperties"   SelectionMode="Multiple"
-           ItemsSource="{Binding Path=Properties}" HorizontalAlignment="Left" Margin="10,167,0,402" Width="300">
+           ItemsSource="{Binding Path=Properties}" HorizontalAlignment="Left" Margin="30,248,0,402" Width="383">
             <ListBox.Resources>
                 <Style TargetType="{x:Type ListBoxItem}">
                     <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
@@ -30,8 +33,6 @@
                 </HierarchicalDataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
-        <ComboBox x:Name="comboBoxGid" ItemStringFormat="0x{0:x16}" ItemsSource="{Binding Path=GIDs}" HorizontalAlignment="Left" Margin="90,73,0,0" VerticalAlignment="Top" Width="200"/>
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Path=ObjectValue}" HorizontalAlignment="Left" Margin="459,167,0,0" VerticalAlignment="Top" Height="431" Width="463">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -51,7 +52,5 @@
                 </MultiBinding>
             </Button.CommandParameter>
         </Button>
-
-
     </Grid>
 </UserControl>

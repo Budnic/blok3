@@ -40,7 +40,7 @@ namespace Client.Command
             {
                 properties.Add(propertyModel.ModelCode);
             }
-            ResourceDescription rd =  Connection.Connection.Instance().Proxy.GetValues(gid, properties);
+            ResourceDescription rd =  viewModel.Proxy.GetValues(gid, properties);
             List<PropertyView> propertyViews = new List<PropertyView>();
             foreach(Property p in rd.Properties)
             {

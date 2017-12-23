@@ -144,7 +144,7 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Importer
                 rd = new ResourceDescription(gid);
                 importHelper.DefineIDMapping(cimAssset.ID, gid);
 
-                PowerTransformerConverter.PopulateAssetProperties(cimAssset, rd);
+                PowerTransformerConverter.PopulateAssetProperties(cimAssset, rd, importHelper, report);
             }
             return rd;
         }
@@ -258,7 +258,7 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Importer
                 importHelper.DefineIDMapping(cimProductAssetModel.ID, gid);
 
                 ////populate ResourceDescription
-                PowerTransformerConverter.PopulateProductAssetModelProperties(cimProductAssetModel, rd);
+                PowerTransformerConverter.PopulateProductAssetModelProperties(cimProductAssetModel, rd, importHelper, report);
             }
             return rd;
         }

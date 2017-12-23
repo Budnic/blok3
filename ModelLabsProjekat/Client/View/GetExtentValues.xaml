@@ -42,7 +42,7 @@
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="buttonLoad" Command="{Binding Path=LoadValues}" Content="Load" HorizontalAlignment="Left" Margin="91,657,0,0" VerticalAlignment="Top" Width="75">
+        <Button x:Name="buttonLoad" Command="{Binding Path=LoadValues}" Content="Load" HorizontalAlignment="Left" Margin="91,400,0,0" VerticalAlignment="Top" Width="75">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource multiConverter}">
                     <Binding Path="SelectedItem" ElementName="comboBoxDMSType"/>

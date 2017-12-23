@@ -9,22 +9,36 @@ namespace Client.Connection
 {
     public class Connection
     {
-        private static Connection instance;
 
-        public INetworkModelGDAContract Proxy { get; set; }
+        private INetworkModelGDAContract proxy;
 
-        private Connection()
+        public INetworkModelGDAContract Proxy
         {
-            var binding = new NetTcpBinding();
-            Proxy = new ChannelFactory<INetworkModelGDAContract>("*").CreateChannel();
-        }
-        public static Connection Instance()
-        {
-            if(instance == null)
+            get
             {
-                instance = new Connection();
+                return proxy;
             }
-            return instance;
+
+           private set
+            {
+                proxy = value;
+            }
         }
+
+        public bool Connect()
+        {
+            try
+            {
+                var binding = new NetTcpBinding();
+                ChannelFactory<INetworkModelGDAContract> factory  = new ChannelFactory<INetworkModelGDAContract>("*");
+                proxy = factory.CreateChannel();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
     }
 }

@@ -502,15 +502,24 @@ namespace FTN.Common
 					return this.AsBool().ToString().ToLower();
 				case PropertyType.Byte:
 				case PropertyType.Enum:
-					return this.AsEnum().ToString();
+                    try
+                    {
+                        EnumDescs enumDescs = new EnumDescs();
+                        return (enumDescs.GetStringFromEnum(this.Id, this.AsEnum()));
+                    }
+                    catch (Exception)
+                    {
+                        return (this.AsEnum().ToString());
+                    }
 				case PropertyType.Int32:
 					return this.AsInt().ToString();
 				case PropertyType.Int64:
 				case PropertyType.TimeSpan:
 					return this.AsLong().ToString();
 				case PropertyType.Reference:
-					//return this.AsLong().ToString("x16");
-					return this.AsLong().ToString();
+                    return (String.Format("0x{0:x16}", this.AsReference()));
+                    //return this.AsLong().ToString("x16");
+                    // return this.AsLong().ToString();
 				case PropertyType.Float:
 					return this.AsFloat().ToString(new System.Globalization.CultureInfo("en-US", false).NumberFormat);
 				case PropertyType.String:

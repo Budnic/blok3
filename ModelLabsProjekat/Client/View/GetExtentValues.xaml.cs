@@ -1,5 +1,6 @@
 ﻿using Client.ViewModel;
 using FTN.Common;
+using FTN.ServiceContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,13 @@ namespace Client.View
         public GetExtentValues()
         {
             InitializeComponent();
-            DataContext = new GetExtentValuesViewModel();
+
+
+            Connection.Connection connection = new Connection.Connection();
+            connection.Connect();
+            INetworkModelGDAContract proxy = connection.Proxy;
+
+            DataContext = new GetExtentValuesViewModel(proxy);
         }
         private void comboBoxDMSType_Loaded_1(object sender, RoutedEventArgs e)
         {

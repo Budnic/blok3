@@ -51,7 +51,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (prop.Id)
             {
-                case ModelCode.PRODUCTASSETMODEL_MANUFACTURER:
+                case ModelCode.MANUFACTURER_PRODUCTASSETS:
                     prop.SetValue(productAssetModels);
                     break;
 

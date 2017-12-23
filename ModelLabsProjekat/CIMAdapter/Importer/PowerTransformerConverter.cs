@@ -102,7 +102,7 @@
             }
         }
 
-        public static void PopulateProductAssetModelProperties(ProductAssetModel cimProductAssetModel, ResourceDescription rd)
+        public static void PopulateProductAssetModelProperties(ProductAssetModel cimProductAssetModel, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
         {
             if ((cimProductAssetModel != null) && (rd != null))
             {
@@ -130,46 +130,76 @@
                 {
                     rd.AddProperty(new Property(ModelCode.PRODUCTASSETMODEL_WEIGHTTOTAL, cimProductAssetModel.WeightTotal));
                 }
+                if (cimProductAssetModel.ManufacturerHasValue)
+                {
+                    long gid = importHelper.GetMappedGID(cimProductAssetModel.Manufacturer.ID);
+                    if (gid < 0)
+                    {
+                        report.Report.Append("WARNING: Convert ").Append(cimProductAssetModel.GetType().ToString()).Append(" rdfID = \"").Append(cimProductAssetModel.ID);
+                        report.Report.Append("\" - Failed to set reference to AssetModel: rdfID \"").Append(cimProductAssetModel.Manufacturer.ID).AppendLine(" \" is not mapped to GID!");
+                    }
+                    rd.AddProperty(new Property(ModelCode.PRODUCTASSETMODEL_MANUFACTURER, gid));
+                }
             }
         }
 
-        public static void PopulateAssetProperties(Asset cimAssset, ResourceDescription rd)
+        public static void PopulateAssetProperties(Asset cimAsset, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)
         {
-            if ((cimAssset != null) && (rd != null))
+            if ((cimAsset != null) && (rd != null))
             {
-                PowerTransformerConverter.PopulateIdentifiedObjectProperties(cimAssset, rd);
+                PowerTransformerConverter.PopulateIdentifiedObjectProperties(cimAsset, rd);
 
-                if (cimAssset.CriticalHasValue)
+                if (cimAsset.CriticalHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_CRITICAL, cimAssset.Critical));
+                    rd.AddProperty(new Property(ModelCode.ASSET_CRITICAL, cimAsset.Critical));
                 }
-                if (cimAssset.InitialConditionHasValue)
+                if (cimAsset.InitialConditionHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_INITIALCONDITION, cimAssset.InitialCondition));
+                    rd.AddProperty(new Property(ModelCode.ASSET_INITIALCONDITION, cimAsset.InitialCondition));
                 }
-                if (cimAssset.InitialLossOfLifeHasValue)
+                if (cimAsset.InitialLossOfLifeHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_INITIALLOSSOFLIFE, cimAssset.InitialLossOfLife));
+                    rd.AddProperty(new Property(ModelCode.ASSET_INITIALLOSSOFLIFE, cimAsset.InitialLossOfLife));
                 }
-                if (cimAssset.LotNumberHasValue)
+                if (cimAsset.LotNumberHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_LOTNUMBER, cimAssset.LotNumber));
+                    rd.AddProperty(new Property(ModelCode.ASSET_LOTNUMBER, cimAsset.LotNumber));
                 }
-                if (cimAssset.PurchasePriceHasValue)
+                if (cimAsset.PurchasePriceHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_PURCHASEPRICE, cimAssset.PurchasePrice));
+                    rd.AddProperty(new Property(ModelCode.ASSET_PURCHASEPRICE, cimAsset.PurchasePrice));
                 }
-                if (cimAssset.SerialNumberHasValue)
+                if (cimAsset.SerialNumberHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_SERIALNUMBER, cimAssset.SerialNumber));
+                    rd.AddProperty(new Property(ModelCode.ASSET_SERIALNUMBER, cimAsset.SerialNumber));
                 }
-                if (cimAssset.TypeHasValue)
+                if (cimAsset.TypeHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_TYPE, cimAssset.Type));
+                    rd.AddProperty(new Property(ModelCode.ASSET_TYPE, cimAsset.Type));
                 }
-                if (cimAssset.UtcNumberHasValue)
+                if (cimAsset.UtcNumberHasValue)
                 {
-                    rd.AddProperty(new Property(ModelCode.ASSET_UTCNUMBER, cimAssset.UtcNumber));
+                    rd.AddProperty(new Property(ModelCode.ASSET_UTCNUMBER, cimAsset.UtcNumber));
+                }
+                if (cimAsset.AssetInfoHasValue)
+                {
+                    long gid = importHelper.GetMappedGID(cimAsset.AssetInfo.ID);
+                    if (gid < 0)
+                    {
+                        report.Report.Append("WARNING: Convert ").Append(cimAsset.GetType().ToString()).Append(" rdfID = \"").Append(cimAsset.ID);
+                        report.Report.Append("\" - Failed to set reference to AssetModel: rdfID \"").Append(cimAsset.AssetInfo.ID).AppendLine(" \" is not mapped to GID!");
+                    }
+                    rd.AddProperty(new Property(ModelCode.ASSET_ASSETINFO, gid));
+                }
+                if (cimAsset.OrganisationRolesHasValue)
+                {
+                    long gid = importHelper.GetMappedGID(cimAsset.OrganisationRoles.ID);
+                    if (gid < 0)
+                    {
+                        report.Report.Append("WARNING: Convert ").Append(cimAsset.GetType().ToString()).Append(" rdfID = \"").Append(cimAsset.ID);
+                        report.Report.Append("\" - Failed to set reference to AssetModel: rdfID \"").Append(cimAsset.OrganisationRoles.ID).AppendLine(" \" is not mapped to GID!");
+                    }
+                    rd.AddProperty(new Property(ModelCode.ASSET_ORGANISATIONROLE, gid));
                 }
             }
         }

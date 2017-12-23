@@ -62,6 +62,18 @@
 		<cim:IdentifiedObject.mRID>PAM_636490590352083186</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name></cim:IdentifiedObject.name>
 	</cim:ProductAssetModel>
+	<!-- ProductAssetModel -->
+	<cim:ProductAssetModel rdf:ID="PAM_636490590352083187">
+		<cim:ProductAssetModel.corporateStandardKind>experimental</cim:ProductAssetModel.corporateStandardKind>
+		<cim:ProductAssetModel.Manufacturer rdf:resource="#M_636490590187555113"/>
+		<cim:ProductAssetModel.modelNumber></cim:ProductAssetModel.modelNumber>
+		<cim:ProductAssetModel.modelVersion></cim:ProductAssetModel.modelVersion>
+		<cim:ProductAssetModel.usageKind>customerSubstation</cim:ProductAssetModel.usageKind>
+		<cim:ProductAssetModel.weightTotal></cim:ProductAssetModel.weightTotal>
+		<cim:IdentifiedObject.aliasName></cim:IdentifiedObject.aliasName>
+		<cim:IdentifiedObject.mRID>PAM_636490590352083187</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.name></cim:IdentifiedObject.name>
+	</cim:ProductAssetModel>
 <!-- Seal -->
 	<cim:Seal rdf:ID="S_636490590429161971">
 		<cim:Seal.appliedDateTime> </cim:Seal.appliedDateTime>
@@ -70,6 +82,16 @@
 		<cim:Seal.sealNumber> </cim:Seal.sealNumber>
 		<cim:IdentifiedObject.aliasName></cim:IdentifiedObject.aliasName>
 		<cim:IdentifiedObject.mRID>S_636490590429161971</cim:IdentifiedObject.mRID>
+		<cim:IdentifiedObject.name></cim:IdentifiedObject.name>
+	</cim:Seal>
+<!-- Seal -->
+	<cim:Seal rdf:ID="S_636490590429161972">
+		<cim:Seal.appliedDateTime> </cim:Seal.appliedDateTime>
+		<cim:Seal.condition> broken</cim:Seal.condition>
+		<cim:Seal.kind> lead</cim:Seal.kind>
+		<cim:Seal.sealNumber> </cim:Seal.sealNumber>
+		<cim:IdentifiedObject.aliasName></cim:IdentifiedObject.aliasName>
+		<cim:IdentifiedObject.mRID>S_636490590429161972</cim:IdentifiedObject.mRID>
 		<cim:IdentifiedObject.name></cim:IdentifiedObject.name>
 	</cim:Seal>
 </rdf:RDF>

@@ -8,7 +8,7 @@ using System.Threading;
 using FTN.Common;
 using System.Collections;
 using FTN.ServiceContracts;
-
+using System.Diagnostics;
 
 namespace FTN.Services.NetworkModelService
 {
@@ -52,6 +52,8 @@ namespace FTN.Services.NetworkModelService
 
 		public int GetExtentValues(ModelCode entityType, List<ModelCode> propIds)
 		{
+
+           
 			try
 			{
 				ResourceIterator ri = nm.GetExtentValues(entityType, propIds);

@@ -1,6 +1,7 @@
 ﻿using Client.Command;
 using Client.Model;
 using FTN.Common;
+using FTN.ServiceContracts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,13 +12,11 @@ namespace Client.ViewModel
 {
     public class GetExtentValuesViewModel : AbstractViewModel
     {
-
         public GetExtentValuesCommand LoadValues{get;set;}
-        public GetExtentValuesViewModel()
+        public GetExtentValuesViewModel(INetworkModelGDAContract proxy) : base(proxy)
         {
             this.LoadValues = new GetExtentValuesCommand(this);
         }
-
 
         public ObservableCollection<PropertyView> objectValue;
         public DMSType Type

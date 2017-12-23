@@ -180,7 +180,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
                     corporateStandardKind = (CorporateStandardKind)property.AsEnum();
                     break;
                 case ModelCode.PRODUCTASSETMODEL_MANUFACTURER:
-                    manufacturer = property.AsLong();
+                    manufacturer = property.AsReference();
                     break;
                 case ModelCode.PRODUCTASSETMODEL_MODELNUMBER:
                     modelNumber = property.AsString();

@@ -39,7 +39,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (t)
             {
-                case ModelCode.MANUFACTURER_PRODUCTASSETS:
+                case ModelCode.MANUFACTURER_PRODUCTASSETMODEL:
                     return true;
 
                 default:
@@ -51,7 +51,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (prop.Id)
             {
-                case ModelCode.MANUFACTURER_PRODUCTASSETS:
+                case ModelCode.MANUFACTURER_PRODUCTASSETMODEL:
                     prop.SetValue(productAssetModels);
                     break;
 
@@ -89,7 +89,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             if (productAssetModels != null && productAssetModels.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.MANUFACTURER_PRODUCTASSETS] = productAssetModels.GetRange(0, productAssetModels.Count);
+                references[ModelCode.MANUFACTURER_PRODUCTASSETMODEL] = productAssetModels.GetRange(0, productAssetModels.Count);
             }
 
             base.GetReferences(references, refType);

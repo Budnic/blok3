@@ -51,7 +51,7 @@ namespace FTN.Common
         ASSET_SERIALNUMBER                  = 0x1300000000010607,
         ASSET_TYPE                          = 0x1300000000010707,
         ASSET_UTCNUMBER                     = 0x1300000000010807,
-        ASSET_ORGANISATIONROLE              = 0x1300000000010909,
+        ASSET_ASSETORGANISATIONROLE         = 0x1300000000010909,
         ASSET_ASSETINFO                     = 0x1300000000011009,
 
         ASSETINFO                           = 0x1400000000040000,
@@ -59,7 +59,7 @@ namespace FTN.Common
         ASSETINFO_ASSETS                    = 0x1400000000040219,
 
         ASSETMODEL                          = 0x1500000000000000,
-        ASSETMODEL_ASSETINFOS               = 0x1500000000000119,
+        ASSETMODEL_ASSETINFO                = 0x1500000000000119,
 
         SEAL                                = 0x1600000000050000,
         SEAL_APPLIEDTIME                    = 0x1600000000050108,
@@ -68,12 +68,12 @@ namespace FTN.Common
         SEAL_SEALNUMBER                     = 0x1600000000050407,
 
         ASSETORGANISATIONROLE               = 0x1210000000000000,
-        ASSETORGANISATIONROLE_ASSETS        = 0x1210000000000119,
+        ASSETORGANISATIONROLE_ASSET         = 0x1210000000000119,
 
         ASSETOWNER                          = 0x1211000000030000,
 
         MANUFACTURER                        = 0x1220000000060000,
-        MANUFACTURER_PRODUCTASSETS          = 0x1220000000060119,
+        MANUFACTURER_PRODUCTASSETMODEL      = 0x1220000000060119,
 
         PRODUCTASSETMODEL                   = 0x1510000000070000,
         PRODUCTASSETMODEL_CSTANDARDKIND     = 0x151000000007010A,

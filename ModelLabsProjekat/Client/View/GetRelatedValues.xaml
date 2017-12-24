@@ -17,11 +17,11 @@
         <ComboBox x:Name="comboBoxGid"  ItemStringFormat="0x{0:x16}" ItemsSource="{Binding Path=GIDs}" HorizontalAlignment="Left" Margin="166,68,0,0" VerticalAlignment="Top" Width="200"/>
         <Label x:Name="label2" Content="Property ID" HorizontalAlignment="Left" Margin="30,106,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Type" HorizontalAlignment="Left" Margin="30,154,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="166,110,0,0" VerticalAlignment="Top" ItemsSource="{Binding Path=References}" Width="200"/>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="166,158,0,0" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="166,110,0,0" VerticalAlignment="Top" ItemsSource="{Binding Path=References}" SelectedItem="{Binding Path=ReferenceSelected}" Width="200"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="166,158,0,0" ItemsSource="{Binding Path=PropertyTypes}" SelectedItem="{Binding Path=PropertyType}" VerticalAlignment="Top" Width="200"/>
 
-        <ListBox x:Name="listBoxProperties"   SelectionMode="Multiple"
-           ItemsSource="{Binding Path=Properties}" HorizontalAlignment="Left" Margin="30,248,0,402" Width="383">
+        <ListBox x:Name="listBoxProperties" SelectionMode="Multiple"
+           ItemsSource="{Binding Path=ReferencedProperties}" HorizontalAlignment="Left" Margin="30,248,0,402" Width="383">
             <ListBox.Resources>
                 <Style TargetType="{x:Type ListBoxItem}">
                     <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
@@ -44,10 +44,12 @@
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="buttonLoad" Command="{Binding Path=LoadValues}" Content="Load" HorizontalAlignment="Left" Margin="91,400,0,0" VerticalAlignment="Top" Width="75">
+        <Button x:Name="buttonLoad" Command="{Binding Path=LoadValues}" Content="Load" HorizontalAlignment="Left" Margin="91,600,0,0" VerticalAlignment="Top" Width="75">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource multiConverter}">
                     <Binding Path="SelectedItem" ElementName="comboBoxGid"/>
+                    <Binding Path="SelectedItem" ElementName="comboBox"/>
+                    <Binding Path="SelectedItem" ElementName="comboBox1"/>
                     <Binding Path="SelectedItems" ElementName="listBoxProperties"/>
                 </MultiBinding>
             </Button.CommandParameter>

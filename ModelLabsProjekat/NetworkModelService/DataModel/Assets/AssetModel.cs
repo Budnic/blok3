@@ -51,7 +51,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (t)
             {
-                case ModelCode.ASSETMODEL_ASSETINFOS:
+                case ModelCode.ASSETMODEL_ASSETINFO:
                     return true;
 
                 default:
@@ -63,7 +63,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (prop.Id)
             {
-                case ModelCode.ASSETMODEL_ASSETINFOS:
+                case ModelCode.ASSETMODEL_ASSETINFO:
                     prop.SetValue(assetInfos);
                     break;
 
@@ -87,7 +87,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             if (assetInfos != null && assetInfos.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.ASSETMODEL_ASSETINFOS] = assetInfos.GetRange(0, assetInfos.Count);
+                references[ModelCode.ASSETMODEL_ASSETINFO] = assetInfos.GetRange(0, assetInfos.Count);
             }
 
             base.GetReferences(references, refType);

@@ -64,9 +64,11 @@ namespace Client.Command
 
         public List<ResourceDescription> GetExtentValues(ModelCode modelCode , List<ModelCode> properties)
         {
-          
 
-           
+            string message = "Getting extent values method started.";
+            Console.WriteLine(message);
+            CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+
             int iteratorId = 0;
             List<ResourceDescription>  resourceDescriptions = new List<ResourceDescription>();
 
@@ -92,10 +94,17 @@ namespace Client.Command
                 }
 
                 viewModel.Proxy.IteratorClose(iteratorId);
+                message = "Getting extent values method successfully finished.";
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
 
             }
-            catch
+            catch(Exception e)
             {
+                message = string.Format("Getting extent values method failed for {0}.\n\t{1}", modelCode, e.Message);
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+
                 return null;
             }
            

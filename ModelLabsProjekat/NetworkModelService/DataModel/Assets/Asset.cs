@@ -184,7 +184,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
                     return true;
                 case ModelCode.ASSET_LOTNUMBER:
                     return true;
-                case ModelCode.ASSET_ORGANISATIONROLE:
+                case ModelCode.ASSET_ASSETORGANISATIONROLE:
                     return true;
                 case ModelCode.ASSET_PURCHASEPRICE:
                     return true;
@@ -218,7 +218,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
                 case ModelCode.ASSET_LOTNUMBER:
                     prop.SetValue(lotNumber);
                     break;
-                case ModelCode.ASSET_ORGANISATIONROLE:
+                case ModelCode.ASSET_ASSETORGANISATIONROLE:
                     prop.SetValue(assetOrganisationRole);
                     break;
                 case ModelCode.ASSET_PURCHASEPRICE:
@@ -260,7 +260,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
                 case ModelCode.ASSET_LOTNUMBER:
                     lotNumber = property.AsString();
                     break;
-                case ModelCode.ASSET_ORGANISATIONROLE:
+                case ModelCode.ASSET_ASSETORGANISATIONROLE:
                     assetOrganisationRole = property.AsReference();
                     break;
                 case ModelCode.ASSET_PURCHASEPRICE:
@@ -296,8 +296,8 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
             }
             if (assetOrganisationRole != 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.ASSET_ORGANISATIONROLE] = new List<long>();
-                references[ModelCode.ASSET_ORGANISATIONROLE].Add(assetOrganisationRole);
+                references[ModelCode.ASSET_ASSETORGANISATIONROLE] = new List<long>();
+                references[ModelCode.ASSET_ASSETORGANISATIONROLE].Add(assetOrganisationRole);
             }
             base.GetReferences(references, refType);
         }

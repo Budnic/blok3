@@ -12,13 +12,16 @@ namespace Client.ViewModel
 {
     public class GetExtentValuesViewModel : AbstractViewModel
     {
+        private ObservableCollection<PropertyView> objectValue;
         public GetExtentValuesCommand LoadValues{get;set;}
+
+
         public GetExtentValuesViewModel(INetworkModelGDAContract proxy) : base(proxy)
         {
             this.LoadValues = new GetExtentValuesCommand(this);
         }
 
-        public ObservableCollection<PropertyView> objectValue;
+       
         public DMSType Type
         {
             get { return type; }

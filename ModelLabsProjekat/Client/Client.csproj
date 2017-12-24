@@ -79,6 +79,7 @@
     </ApplicationDefinition>
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\GetExtentValuesCommand.cs" />
+    <Compile Include="Command\GetRelatedValuesCommand.cs" />
     <Compile Include="Command\GetValuesCommand.cs" />
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Converter\MultiCloneConverter.cs" />

@@ -893,10 +893,10 @@ namespace FTN.Common
             //         notSettablePropertyIds.Add(ModelCode.POWERTR_WINDINGS);	
 
             notSettablePropertyIds.Add(ModelCode.IDOBJ_GID);
-            notSettablePropertyIds.Add(ModelCode.MANUFACTURER_PRODUCTASSETS);
-            notSettablePropertyIds.Add(ModelCode.ASSETMODEL_ASSETINFOS);
+            notSettablePropertyIds.Add(ModelCode.MANUFACTURER_PRODUCTASSETMODEL);
+            notSettablePropertyIds.Add(ModelCode.ASSETMODEL_ASSETINFO);
             notSettablePropertyIds.Add(ModelCode.ASSETINFO_ASSETS);
-            notSettablePropertyIds.Add(ModelCode.ASSETORGANISATIONROLE_ASSETS);
+            notSettablePropertyIds.Add(ModelCode.ASSETORGANISATIONROLE_ASSET);
 
         }
 

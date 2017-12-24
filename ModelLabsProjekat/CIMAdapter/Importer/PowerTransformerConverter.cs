@@ -199,7 +199,7 @@
                         report.Report.Append("WARNING: Convert ").Append(cimAsset.GetType().ToString()).Append(" rdfID = \"").Append(cimAsset.ID);
                         report.Report.Append("\" - Failed to set reference to AssetModel: rdfID \"").Append(cimAsset.OrganisationRoles.ID).AppendLine(" \" is not mapped to GID!");
                     }
-                    rd.AddProperty(new Property(ModelCode.ASSET_ORGANISATIONROLE, gid));
+                    rd.AddProperty(new Property(ModelCode.ASSET_ASSETORGANISATIONROLE, gid));
                 }
             }
         }

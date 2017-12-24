@@ -52,7 +52,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (t)
             {
-                case ModelCode.ASSETORGANISATIONROLE_ASSETS:
+                case ModelCode.ASSETORGANISATIONROLE_ASSET:
                     return true;
           
                 default:
@@ -64,7 +64,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (prop.Id)
             {
-                case ModelCode.ASSETORGANISATIONROLE_ASSETS:
+                case ModelCode.ASSETORGANISATIONROLE_ASSET:
                     prop.SetValue(assets);
                     break;
 
@@ -89,7 +89,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             if (assets != null && assets.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
             {
-                references[ModelCode.ASSETORGANISATIONROLE_ASSETS] = assets.GetRange(0, assets.Count);
+                references[ModelCode.ASSETORGANISATIONROLE_ASSET] = assets.GetRange(0, assets.Count);
             }
           
             base.GetReferences(references, refType);
@@ -99,7 +99,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (referenceId)
             {
-                case ModelCode.ASSET_ORGANISATIONROLE:
+                case ModelCode.ASSET_ASSETORGANISATIONROLE:
                     assets.Add(globalId);
                     break;
 
@@ -113,7 +113,7 @@ namespace FTN.Services.NetworkModelService.DataModel.Assets
         {
             switch (referenceId)
             {
-                case ModelCode.ASSET_ORGANISATIONROLE:
+                case ModelCode.ASSET_ASSETORGANISATIONROLE:
 
                     if (assets.Contains(globalId))
                     {
